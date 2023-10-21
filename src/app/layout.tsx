@@ -1,14 +1,15 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
+import type { Metadata } from "next";
+import { Inter } from "next/font/google";
+import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Flag of Palestine",
   description: "Flag of Palestine",
   openGraph: {
-    type: 'website',
+    type: "website",
     title: "Flag of Palestine",
     description: "Flag of Palestine",
     url: "https://c-a-m-l.com",
@@ -20,21 +21,24 @@ export const metadata: Metadata = {
     ],
   },
   twitter: {
-    card: 'summary_large_image',
-    title: 'Flag of Palestine',
-    description: 'Flag of Palestine',
-    images: ['/meta.png'],
+    card: "summary_large_image",
+    title: "Flag of Palestine",
+    description: "Flag of Palestine",
+    images: ["/meta.png"],
   },
 };
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>{children}</body>
+      <body className={inter.className}>
+        {children}
+        <Analytics />
+      </body>
     </html>
-  )
+  );
 }
